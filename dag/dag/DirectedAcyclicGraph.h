@@ -97,7 +97,9 @@ public:
   TNode& operator=(const TNode&) = delete;
   // unordered_set requires these to be available
   Node(TNode&) = default;
-  Node(const TNode&) = default;
+#ifndef _MSC_VER
+    Node(const TNode&) = default;
+#endif
   // Move is good
   TNode& operator=(TNode&& other) = default;
   Node(TNode&& other) = default;
